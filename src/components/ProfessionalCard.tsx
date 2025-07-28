@@ -1,100 +1,67 @@
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Star, MapPin, Clock, CheckCircle } from "lucide-react";
+import { Star } from "lucide-react";
 
 interface Professional {
   id: string;
   name: string;
-  title: string;
-  image: string;
+  avatar: string;
   rating: number;
-  reviews: number;
-  location: string;
-  rate: string;
-  availability: string;
-  verified: boolean;
+  reviewCount: number;
   specialties: string[];
+  category: string;
+  bio: string;
 }
 
 interface ProfessionalCardProps {
   professional: Professional;
 }
 
-const ProfessionalCard = ({ professional }: ProfessionalCardProps) => {
+export const ProfessionalCard = ({ professional }: ProfessionalCardProps) => {
   return (
-    <div className="bg-card rounded-xl p-6 shadow-card hover:shadow-glow transition-all duration-300 border border-border group">
-      {/* Header */}
-      <div className="flex items-start gap-4 mb-4">
+    <div className="bg-card border border-border rounded-xl p-6 hover:shadow-xl transition-all duration-300 hover:scale-105 group relative">
+      {/* Rating in top corner */}
+      <div className="absolute top-4 right-4 flex items-center gap-1 bg-background/80 backdrop-blur-sm px-2 py-1 rounded-full">
+        <Star className="w-3 h-3 fill-yellow-400 text-yellow-400" />
+        <span className="text-xs font-medium text-foreground">
+          {professional.rating}
+        </span>
+        <span className="text-xs text-muted-foreground">
+          ({professional.reviewCount})
+        </span>
+      </div>
+
+      <div className="flex flex-col items-center text-center space-y-4">
         <div className="relative">
-          <img 
-            src={professional.image} 
+          <img
+            src={professional.avatar}
             alt={professional.name}
-            className="w-16 h-16 rounded-full object-cover"
+            className="w-20 h-20 rounded-full object-cover border-2 border-primary/20 group-hover:border-primary/60 transition-all duration-300"
           />
-          {professional.verified && (
-            <div className="absolute -bottom-1 -right-1 bg-primary rounded-full p-1">
-              <CheckCircle className="h-3 w-3 text-primary-foreground" />
-            </div>
-          )}
         </div>
         
-        <div className="flex-1">
-          <div className="flex items-center gap-2 mb-1">
-            <h3 className="font-semibold text-lg text-card-foreground">{professional.name}</h3>
-            {professional.verified && (
-              <Badge variant="secondary" className="text-xs">Verified</Badge>
-            )}
-          </div>
-          <p className="text-muted-foreground text-sm">{professional.title}</p>
+        <div className="space-y-3">
+          <h3 className="text-lg font-semibold text-foreground">
+            {professional.name}
+          </h3>
           
-          {/* Rating */}
-          <div className="flex items-center gap-2 mt-2">
-            <div className="flex items-center gap-1">
-              <Star className="h-4 w-4 fill-accent text-accent" />
-              <span className="font-medium text-sm">{professional.rating}</span>
-            </div>
-            <span className="text-muted-foreground text-xs">({professional.reviews} reviews)</span>
+          {/* Bio section */}
+          <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2">
+            {professional.bio}
+          </p>
+          
+          <div className="flex flex-wrap gap-2 justify-center">
+            {professional.specialties.map((specialty, index) => (
+              <Badge
+                key={index}
+                variant="secondary"
+                className="text-xs px-3 py-1 bg-secondary/80 text-secondary-foreground"
+              >
+                {specialty}
+              </Badge>
+            ))}
           </div>
         </div>
-        
-        <div className="text-right">
-          <div className="text-lg font-bold text-card-foreground">{professional.rate}</div>
-          <div className="text-xs text-muted-foreground">per hour</div>
-        </div>
-      </div>
-      
-      {/* Details */}
-      <div className="flex items-center gap-4 mb-4 text-sm text-muted-foreground">
-        <div className="flex items-center gap-1">
-          <MapPin className="h-3 w-3" />
-          <span>{professional.location}</span>
-        </div>
-        <div className="flex items-center gap-1">
-          <Clock className="h-3 w-3" />
-          <span>{professional.availability}</span>
-        </div>
-      </div>
-      
-      {/* Specialties */}
-      <div className="flex flex-wrap gap-2 mb-4">
-        {professional.specialties.map((specialty, index) => (
-          <Badge key={index} variant="outline" className="text-xs">
-            {specialty}
-          </Badge>
-        ))}
-      </div>
-      
-      {/* Actions */}
-      <div className="flex gap-2">
-        <Button variant="outline" size="sm" className="flex-1">
-          View Profile
-        </Button>
-        <Button variant="premium" size="sm" className="flex-1">
-          Book Now
-        </Button>
       </div>
     </div>
   );
-};
-
-export default ProfessionalCard;
+}

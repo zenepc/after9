@@ -1,118 +1,133 @@
-import Navbar from "@/components/Navbar";
-import CategoryFilter from "@/components/CategoryFilter";
-import { Badge } from "@/components/ui/badge";
-import { Star } from "lucide-react";
 import { useState } from "react";
+import { CategoryFilter } from "@/components/CategoryFilter";
+import { ProfessionalCard } from "@/components/ProfessionalCard";
 
-const mockProfiles = [
+const professionals = [
   {
     id: "1",
     name: "Sarah Martinez",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=300&h=300&fit=crop&crop=face",
+    avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=150&h=150&fit=crop&crop=face",
     rating: 4.9,
-    categories: ["Bartender", "Mixologist"],
+    reviewCount: 127,
+    specialties: ["Bartender", "Mixologist"],
+    category: "bartenders",
+    bio: "Expert mixologist with 8+ years creating signature cocktails for luxury events and private parties."
   },
   {
     id: "2",
     name: "DJ Marcus",
-    image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=300&h=300&fit=crop&crop=face",
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
     rating: 4.8,
-    categories: ["DJ", "Music Producer"],
+    reviewCount: 89,
+    specialties: ["DJ", "Music Producer"],
+    category: "djs",
+    bio: "Professional DJ and producer specializing in electronic music, weddings, and corporate events."
   },
   {
     id: "3",
     name: "Emily Chen",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=300&h=300&fit=crop&crop=face",
+    avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
     rating: 4.7,
-    categories: ["Event Server", "Host"],
+    reviewCount: 156,
+    specialties: ["Event Server", "Host"],
+    category: "event-staff",
+    bio: "Experienced event coordinator and host, ensuring seamless service for high-end corporate functions."
   },
   {
     id: "4",
     name: "Alex Rodriguez",
-    image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=300&h=300&fit=crop&crop=face",
+    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
     rating: 4.9,
-    categories: ["Bartender", "Event Consultant"],
+    reviewCount: 203,
+    specialties: ["Bartender", "Event Consultant"],
+    category: "bartenders",
+    bio: "Award-winning bartender and event consultant with expertise in craft cocktails and bar setup."
   },
   {
     id: "5",
     name: "Luna Williams",
-    image: "https://images.unsplash.com/photo-1473091534298-04dcbce3278c?w=300&h=300&fit=crop&crop=face",
+    avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face",
     rating: 4.6,
-    categories: ["DJ", "MC"],
+    reviewCount: 74,
+    specialties: ["DJ", "MC"],
+    category: "djs",
+    bio: "Versatile DJ and MC bringing energy to clubs, festivals, and private celebrations across genres."
   },
   {
     id: "6",
     name: "James Thompson",
-    image: "https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?w=300&h=300&fit=crop&crop=face",
+    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face",
     rating: 4.8,
-    categories: ["Server", "Team Lead"],
+    reviewCount: 192,
+    specialties: ["Server", "Team Lead"],
+    category: "event-staff",
+    bio: "Team leader with 10 years experience in fine dining and large-scale event service management."
   },
+  {
+    id: "7",
+    name: "Sofia Garcia",
+    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=face",
+    rating: 4.9,
+    reviewCount: 145,
+    specialties: ["Wedding Photographer", "Portrait"],
+    category: "photographers",
+    bio: "Creative photographer capturing beautiful moments at weddings and special events with artistic flair."
+  },
+  {
+    id: "8",
+    name: "Michael Park",
+    avatar: "https://images.unsplash.com/photo-1507591064344-4c6ce005b128?w=150&h=150&fit=crop&crop=face",
+    rating: 4.7,
+    reviewCount: 98,
+    specialties: ["Event Host", "Emcee"],
+    category: "event-hosts",
+    bio: "Charismatic host and emcee making every event memorable with professional presentation skills."
+  }
 ];
 
-const Browse = () => {
+const BrowseProfessionals = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
+
+  const filteredProfessionals = selectedCategory === "all" 
+    ? professionals 
+    : professionals.filter(prof => prof.category === selectedCategory);
 
   return (
     <div className="min-h-screen bg-background">
-      <Navbar />
-      
-      <div className="pt-24 pb-12">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-hero bg-clip-text text-transparent">
-              Browse Professionals
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Discover and rate the best entertainment professionals
+      <div className="container mx-auto px-4 py-12">
+        <div className="text-center mb-12">
+          <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-purple-400 bg-clip-text text-transparent">
+            Browse Professionals
+          </h1>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            Discover and rate the best entertainment professionals
+          </p>
+        </div>
+
+        <CategoryFilter 
+          selectedCategory={selectedCategory}
+          onCategoryChange={setSelectedCategory}
+        />
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {filteredProfessionals.map((professional) => (
+            <ProfessionalCard 
+              key={professional.id} 
+              professional={professional} 
+            />
+          ))}
+        </div>
+
+        {filteredProfessionals.length === 0 && (
+          <div className="text-center py-12">
+            <p className="text-muted-foreground text-lg">
+              No professionals found in this category.
             </p>
           </div>
-          
-          {/* Category Filter Section */}
-          <CategoryFilter 
-            selectedCategory={selectedCategory}
-            onCategoryChange={setSelectedCategory}
-          />
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {mockProfiles.map((profile) => (
-              <div key={profile.id} className="bg-card rounded-xl p-6 shadow-card hover:shadow-glow transition-all duration-300 border border-border group">
-                {/* Profile Image */}
-                <div className="flex justify-center mb-4">
-                  <img 
-                    src={profile.image} 
-                    alt={profile.name}
-                    className="w-20 h-20 rounded-full object-cover"
-                  />
-                </div>
-                
-                {/* Name */}
-                <h3 className="font-semibold text-lg text-card-foreground text-center mb-3">
-                  {profile.name}
-                </h3>
-                
-                {/* Rating */}
-                <div className="flex items-center justify-center gap-2 mb-4">
-                  <div className="flex items-center gap-1">
-                    <Star className="h-4 w-4 fill-accent text-accent" />
-                    <span className="font-medium text-sm">{profile.rating}</span>
-                  </div>
-                </div>
-                
-                {/* Categories */}
-                <div className="flex flex-wrap justify-center gap-2">
-                  {profile.categories.map((category, index) => (
-                    <Badge key={index} variant="outline" className="text-xs">
-                      {category}
-                    </Badge>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+        )}
       </div>
     </div>
   );
 };
 
-export default Browse;
+export default BrowseProfessionals;
