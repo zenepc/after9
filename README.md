@@ -1,73 +1,72 @@
-# Welcome to your Lovable project
+A curated platform to discover, rate, and book bartenders & nightlife professionals.
 
-## Project info
+After Nine is a next-gen platform built for nightlife culture — where bartenders, mixologists, and event staff meet venues and individuals looking for talent. Whether you're organizing a private party, managing a high-end bar, or just want to find the best underground cocktail artist in town, After Nine connects you to the people behind the scenes of nightlife.
 
-**URL**: https://lovable.dev/projects/b29c2dfd-b799-4c87-bd4c-381411540523
+🔥 Why After Nine?
+🥂 Curated Talent Pool: Browse verified bartenders and nightlife professionals with portfolios.
 
-## How can I edit this code?
+⭐️ Rate & Review: Share your experience, read real reviews from partygoers and venues.
 
-There are several ways of editing your application.
+📅 Smart Booking System: Hire staff for your event or venue with just a few clicks.
 
-**Use Lovable**
+🌐 City-Centric: Currently piloting in Berlin & Istanbul — expanding soon.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/b29c2dfd-b799-4c87-bd4c-381411540523) and start prompting.
+📲 Mobile-First: Seamless experience across devices for spontaneous nights out.
 
-Changes made via Lovable will be committed automatically to this repo.
+🚀 Features
+Search & filter professionals by style, specialty, or availability
 
-**Use your preferred IDE**
+Leave and read feedback for each gig
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Integrated booking and calendar management
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+Bar profile pages with signature cocktails and staff
 
-Follow these steps:
+Underground event listings (invite-only)
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+🧱 Tech Stack
+Frontend: React / Next.js
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+Backend: Node.js / Express / Prisma
 
-# Step 3: Install the necessary dependencies.
-npm i
+Database: PostgreSQL
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+Auth: Auth0
+
+Hosting: Vercel + Railway
+
+Other: Stripe (Payments), Cloudinary (Media), Mapbox (Location-based services)
+
+📦 Setup & Installation
+bash
+Copy
+Edit
+git clone https://github.com/yourusername/afternine.git
+cd afternine
+npm install
 npm run dev
-```
+Requires Node.js v18+, and PostgreSQL running locally or via a cloud DB.
 
-**Edit a file directly in GitHub**
+🗺 Roadmap
+ Bartender profiles
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+ Booking system
 
-**Use GitHub Codespaces**
+ Review & rating engine
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+ Event collaboration system
 
-## What technologies are used for this project?
+ AI-powered recommendation feed
 
-This project is built with:
+ Mobile app (Q4 2025)
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+🤝 Contributing
+We welcome nightlife lovers, developers, designers, and idea-makers to contribute. Fork the repo, open an issue, or pitch us on a new feature.
 
-## How can I deploy this project?
+💌 Contact
+Have a question, bug, or collaboration idea?
 
-Simply open [Lovable](https://lovable.dev/projects/b29c2dfd-b799-4c87-bd4c-381411540523) and click on Share -> Publish.
+📧 team@afternine.io
+📍 Based in Berlin & Istanbul
 
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+“The night belongs to the curious.” — After Nine
