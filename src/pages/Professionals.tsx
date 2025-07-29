@@ -10,7 +10,7 @@ import server1 from "@/assets/server-1.jpg";
 const mockProfessionals = [
   {
     id: "1",
-    name: "Sarah Martinez",
+    name: "Kokain Emre",
     title: "Premium Cocktail Specialist",
     image: bartender1,
     rating: 4.9,
@@ -23,7 +23,7 @@ const mockProfessionals = [
   },
   {
     id: "2",
-    name: "DJ Marcus",
+    name: "Betül",
     title: "Event DJ & Music Producer",
     image: dj1,
     rating: 4.8,
