@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Star, Shield, Clock, Award, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Index = () => {
   return (
@@ -66,10 +67,12 @@ const Index = () => {
               Join thousands of satisfied clients who trust after9 for their most important celebrations.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="premium" size="xl" className="flex items-center gap-2" onClick={() => window.location.href = '/browse'}>
-                Browse Professionals
-                <ArrowRight className="h-5 w-5" />
-              </Button>
+              <Link to="/browse">
+                <Button variant="premium" size="xl" className="flex items-center gap-2">
+                  Browse Professionals
+                  <ArrowRight className="h-5 w-5" />
+                </Button>
+              </Link>
               <Button variant="outline" size="xl">
                 Become a Professional
               </Button>

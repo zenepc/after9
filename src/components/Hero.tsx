@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Search, Star, Users, Calendar } from "lucide-react";
 import heroImage from "@/assets/hero-bartender.jpg";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -35,9 +36,11 @@ const Hero = () => {
                 className="w-full pl-10 pr-4 py-3 bg-input border border-border rounded-lg focus:ring-2 focus:ring-ring focus:border-transparent"
               />
             </div>
-            <Button variant="premium" size="lg" className="md:w-auto w-full" onClick={() => window.location.href = '/browse'}>
-              Find Professionals
-            </Button>
+            <Link to="/browse" className="md:w-auto w-full">
+              <Button variant="premium" size="lg" className="w-full">
+                Find Professionals
+              </Button>
+            </Link>
           </div>
         </div>
         
