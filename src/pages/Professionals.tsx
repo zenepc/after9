@@ -2,7 +2,7 @@ import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import CategoryFilter from "@/components/CategoryFilter";
 import SearchFilters from "@/components/SearchFilters";
-import ProfessionalCard from "@/components/ProfessionalCard";
+import { ProfessionalCard } from "@/components/ProfessionalCard";
 import bartender1 from "@/assets/bartender-1.jpg";
 import dj1 from "@/assets/dj-1.jpg";
 import server1 from "@/assets/server-1.jpg";
