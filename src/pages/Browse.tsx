@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { CategoryFilter } from "@/components/CategoryFilter";
+import CategoryFilter from "@/components/CategoryFilter";
 import { ProfessionalCard } from "@/components/ProfessionalCard";
 
 const professionals = [
