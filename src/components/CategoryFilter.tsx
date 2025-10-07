@@ -5,9 +5,9 @@ const categories = [
   { id: "all", name: "All Professionals", icon: Users },
   { id: "bartenders", name: "Bartenders", icon: Wine },
   { id: "djs", name: "DJs", icon: Music },
-  { id: "servers", name: "Event Staff", icon: Utensils },
+  { id: "event-staff", name: "Event Staff", icon: Utensils },
   { id: "photographers", name: "Photographers", icon: Camera },
-  { id: "hosts", name: "Event Hosts", icon: Mic },
+  { id: "event-hosts", name: "Event Hosts", icon: Mic },
 ];
 
 interface CategoryFilterProps {

@@ -1,7 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { Star, Shield, Clock, Award, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
